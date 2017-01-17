@@ -1,0 +1,67 @@
+{
+  "name": "archi-demo",
+  "version": "0.0.1",
+  "description": "archi demo",
+  "main": "app.js",
+  "author": "Wade",
+  "scripts": {
+    "dev": "nodemon -w ./server ./server/app.js",
+    "local": "NODE_ENV=local nodemon ./server/app.js",
+    "local:w": "set NODE_ENV=local&&nodemon ./server/app.js",
+    "prelocal:w": "SET NODE_ENV=local",
+    "ali3": "NODE_ENV=ali3 node dispatch.js",
+    "start": "NODE_ENV=production node dispatch.js",
+    "lint": "standard",
+    "test": "./node_modules/.bin/mocha -t 5s -r should -r co-mocha ./test/server/**/*.test.js",
+    "pretest": "npm run lint",
+    "test-cov": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -t 5000 -r should -r co-mocha -- ./test/server/**/*.test.js"
+  },
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "bcryptjs": "^2.3.0",
+    "bluebird": "^3.3.5",
+    "cfork": "^1.4.0",
+    "co": "^4.6.0",
+    "co-gather": "^0.0.1",
+    "co-series": "^3.0.2",
+    "debug": "^2.2.0",
+    "graceful": "^1.0.0",
+    "ioredis": "^2.0.0-rc1",
+    "joi": "^9.0.1",
+    "koa": "^1.1.2",
+    "koa-bodyparser": "^2.0.1",
+    "koa-cors": "^0.0.16",
+    "koa-morgan": "^0.4.0",
+    "koa-router": "^5.3.0",
+    "lodash": "^4.13.1",
+    "moment": "^2.12.0",
+    "moment-timezone": "^0.5.4",
+    "mongoose": "^4.2.9",
+    "request-debug": "^0.2.0",
+    "request-promise": "^3.0.0",
+    "thenify": "^3.2.0",
+    "validator": "^5.2.0",
+    "winston": "^2.2.0",
+    "winston-daily-rotate-file": "^1.0.1"
+  },
+  "devDependencies": {
+    "co-mocha": "^1.1.2",
+    "co-supertest": "0.0.10",
+    "istanbul": "0.4.1",
+    "nock": "^8.0.0",
+    "mocha": "^2.3.4",
+    "should": "^8.0.1",
+    "standard": "^7.1.2",
+    "supertest": "^1.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "bin/**"
+    ],
+    "global": [
+      "describe",
+      "it"
+    ]
+  },
+  "license": "MIT"
+}
