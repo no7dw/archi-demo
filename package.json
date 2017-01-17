@@ -9,7 +9,6 @@
     "local": "NODE_ENV=local nodemon ./server/app.js",
     "local:w": "set NODE_ENV=local&&nodemon ./server/app.js",
     "prelocal:w": "SET NODE_ENV=local",
-    "ali3": "NODE_ENV=ali3 node dispatch.js",
     "start": "NODE_ENV=production node dispatch.js",
     "lint": "standard",
     "test": "./node_modules/.bin/mocha -t 5s -r should -r co-mocha ./test/server/**/*.test.js",
