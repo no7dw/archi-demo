@@ -11,7 +11,7 @@ const format = config.app.isProd ? 'combined' : 'dev'
 const options = {
   stream: {
     write (str) {
-      logger.info(str)
+      // logger.info(str)
     }
   }
 }

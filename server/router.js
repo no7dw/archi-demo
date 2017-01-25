@@ -11,7 +11,6 @@ const router = new Router({ prefix: '/api/v1' })
 // router.use('/', auth.tokenRequired)
 // status
 router.put('/loan/status', validator.status, status.update)
-router.put('/loan/status', validator.status)
 
 // debug && restart app
 router.get('/_error', function * () {
