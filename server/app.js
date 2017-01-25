@@ -9,7 +9,7 @@ app.init = co.wrap(function * () {
   yield require('./config/db')
   // yield require('./config/redis')
   // init event
-  require('./service/event').init()
+  // require('./service/event').init()
   require('./config/koa')(app)
   if (config.app.isProd) {
     console.info('[3s 后启动 app ]...')
