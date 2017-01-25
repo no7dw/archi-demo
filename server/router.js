@@ -2,7 +2,7 @@
 
 // middleware
 const validator = require('./middleware/validator')
-// const status = require('./controller/status')
+const status = require('./controller/status')
 const Router = require('koa-router')
 
 const router = new Router({ prefix: '/api/v1' })
@@ -10,7 +10,7 @@ const router = new Router({ prefix: '/api/v1' })
 // global auth
 // router.use('/', auth.tokenRequired)
 // status
-// router.put('/loan/status', validator.status, status.update)
+router.put('/loan/status', validator.status, status.update)
 router.put('/loan/status', validator.status)
 
 // debug && restart app
