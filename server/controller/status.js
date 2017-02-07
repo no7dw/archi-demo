@@ -8,4 +8,6 @@ exports.update = function *() {
     'id': 1,
     'name': 'wade'
   }
+  this.body = body
+  console.log('1')
 }
