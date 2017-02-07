@@ -1,3 +1,7 @@
+/*
+资产
+*/
+
 'use strict'
 
 const mongoose = require('mongoose')
@@ -6,7 +10,7 @@ const Schema = mongoose.Schema
 
 
 const schema = new Schema({
-    symbol:{type: String,unique: true, index: true},
+    symbol:{type: String,unique: true, index: true}, //例如：IBM
     type: {type: String},
     name:{type: String},
     tag:{type: String}

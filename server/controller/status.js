@@ -9,5 +9,5 @@ exports.update = function *() {
     'name': 'wade'
   }
   this.body = body
-  console.log('1')
+  // console.log('1')
 }
