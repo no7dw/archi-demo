@@ -26,3 +26,6 @@ schema.set('toJSON') //, {virtuals: true}
 
 // plugin
 // schema.plugin(plugin.crudByAny) //http://mongoosejs.com/docs/plugins.html
+
+
+module.exports = db.main.model('Asset', schema)
