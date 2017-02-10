@@ -82,6 +82,10 @@ UserPortfolioStat(Current) 代替 CustomerAccount
      TotalAsset 持股市值
      AvaiProperty 可用资金
      AssetProportion 仓位(在持)
+     Portfolio : {
+      AssetID
+      Num
+     }
      Income: {
       ERate: //绝对收益率
       RRate: //相对收益率
@@ -114,7 +118,16 @@ UserAssetSummary
 
   ```
 
-UserTagging
+UserTag
+
+  ```
+    UserTag:{
+      UserID
+      Date
+      TagName
+    }
+
+  ```
 
 ====MySQL
 
@@ -124,6 +137,7 @@ Portfolio
   UserId
   AccountId
   PortfolioId
+  Name
   AssetID
   Quantity
 ```
@@ -134,15 +148,16 @@ UserAccount <--- UserPortfolioStat
 ```
   UserId
   AccountId
-  AvaiProperty
+  AvaiProperty 可用资金
 ```
 
 Order
 
 ```
+  OrderId
   UserId
   AssetId
-  portfolioId
+  PortfolioId
   Symbol
   TradeTime
   TradeMoney
