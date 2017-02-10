@@ -13,7 +13,7 @@ Asset
         Name:{type: 'string'},//天健集团
         Symbol:{type: 'string'},//000090
         StyleStatic: {
-        Style: [{ //风格
+        InvestStyle: [{ //风格
           name: // "小盘股",
           code: //"813"
         }],
@@ -70,14 +70,14 @@ UserAssetStat(Current)
 ```
 
 
-UserPortfolioStat(Current)
+UserPortfolioStat(Current) 代替 CustomerAccount
 
 ```
   UserPortfolioStat:{
      UserId 
      PortfolioID
      TotalProperty 总资产
-     CommissionRate 佣金
+     CommissionRate 佣金率
      TurnoverRate 换手率
      TotalAsset 持股市值
      AvaiProperty 可用资金
@@ -88,14 +88,14 @@ UserPortfolioStat(Current)
       Profit //单个资产收益     
     }
      StyleStatic: {
-      Style:[{name, rate}]
+      InvestStyle:[{name, rate}]
       Concept:[{name, rate}]
       Industry:[{name, rate}]
      }
   }
 ```
 
-UserPortfolioDailySummary  -- CustomerAccountSummary? -->UserHoldingDaily
+UserPortfolioDailySummary  -- 替代CustomerAccountSummary  -->UserHoldingDaily
 
 ```
   UserPortfolioDailySummary:{
@@ -104,9 +104,11 @@ UserPortfolioDailySummary  -- CustomerAccountSummary? -->UserHoldingDaily
   }
 ```
 
-UserAssetStat
+UserAssetSummary
   ```
     UserAssetStat:{
+      Date
+      UserAssetStat
 
     }
 
@@ -127,11 +129,12 @@ Portfolio
 ```
 
 
-UserAccount
+UserAccount <--- UserPortfolioStat
 
 ```
   UserId
   AccountId
+  AvaiProperty
 ```
 
 Order
@@ -149,18 +152,5 @@ Order
   Status
 
 ```
-
-=====
-Q?
-CustomerAccountSummary? Done
-AssetSummary? 用户单个股票的买卖收益统计？ Done --> UserAssetStat
-CustomerAccount? UserAccount 标签，收益情况 Done --> UserPortfolioStat
-
-CustomerAccountSummary? UserPortfolioDailySummary Done
-
-
-cManagerAccountId ?
-cCode ?
-
 
 
