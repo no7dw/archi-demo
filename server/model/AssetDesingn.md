@@ -70,6 +70,9 @@ UserAssetStat(Current)
 ```
 
 
+一个用户有多个账户
+UserAccountVirtual(虚拟)账户
+
 UserAccount (Current) 代替 CustomerAccount
 
 ```
@@ -88,7 +91,6 @@ UserAccount (Current) 代替 CustomerAccount
      Portfolio : [{
       AssetId
       Num //股数
-      Price
      }]
      Income: {
       ERate: //绝对收益率
@@ -100,6 +102,19 @@ UserAccount (Current) 代替 CustomerAccount
       Industry:[{name, rate}]
      }
   }
+```
+
+UserPortfolioHolding 用户在持的资产统计
+```
+    {
+        UserId
+        UserAccountId
+        PortfolioDetail: [{
+            AssetId,
+            PurchaseValue
+            Quantity
+        }]
+    }
 ```
 
 UserAccountSummary  -- 替代CustomerAccountSummary
