@@ -164,5 +164,43 @@ Order
   Status
 
 ```
+====MySQL Version
 
+ Portfolio
+
+ ```
+   UserId
+   AccountId
+   PortfolioId
+   Name
+   AssetID
+   Quantity
+ ```
+
+
+ UserAccount < UserPortfolioStat
+
+ ```
+   UserId
+   AccountId
+   AvaiProperty 可用资金
+ ```
+
+
+Order
+
+```
+  OrderId
+  UserId
+  AssetId
+  PortfolioId
+  Symbol
+  TradeTime
+  TradeMoney
+  Price
+  Quantity
+  TradeType //buy sell
+  Status
+
+```
 
