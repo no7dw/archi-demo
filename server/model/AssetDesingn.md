@@ -104,7 +104,7 @@ UserAccount (Current) 代替 CustomerAccount
   }
 ```
 
-UserPortfolioHolding 用户在持的资产统计
+UserPortfolioHolding 用户在持的资产
 ```
     {
         UserId
@@ -112,6 +112,7 @@ UserPortfolioHolding 用户在持的资产统计
         Name
         PortfolioDetail: [{
             AssetId,
+            AssetType //区分产品类别,非标 标准化产品
             PurchaseValue
             Quantity
         }]
@@ -165,6 +166,15 @@ Order
   Status
 
 ```
+
+
+//TBD
+Cashflow
+
+```
+
+```
+
 ====MySQL Version
 
 UserPortfolioHolding
@@ -172,6 +182,8 @@ UserPortfolioHolding
  ```
    UserId
    AccountId
+   Name
+   AssetType
    AssetID
    PurchaseValue
    Quantity
