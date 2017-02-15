@@ -167,7 +167,7 @@ Order
 ```
 ====MySQL Version
 
-Portfolio
+UserPortfolioHolding
 
  ```
    UserId
@@ -179,7 +179,7 @@ Portfolio
  ```
 
 
-UserAccount < UserPortfolioStat
+UserAccount 用户账户 <-- UserPortfolioStat
 
  ```
    UserId
@@ -188,20 +188,5 @@ UserAccount < UserPortfolioStat
  ```
 
 
-Order
-
-```
-  OrderId
-  UserId
-  AssetId
-  PortfolioId
-  Symbol
-  TradeTime
-  TradeMoney
-  Price
-  Quantity
-  TradeType //buy sell
-  Status
-
-```
+Order  -- the same as Mongo version
 
