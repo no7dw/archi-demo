@@ -108,7 +108,8 @@ UserPortfolioHolding 用户在持的资产统计
 ```
     {
         UserId
-        UserAccountId
+        AccountId
+        Name
         PortfolioDetail: [{
             AssetId,
             PurchaseValue
@@ -166,19 +167,19 @@ Order
 ```
 ====MySQL Version
 
- Portfolio
+Portfolio
 
  ```
    UserId
    AccountId
-   PortfolioId
-   Name
    AssetID
+   PurchaseValue
    Quantity
+
  ```
 
 
- UserAccount < UserPortfolioStat
+UserAccount < UserPortfolioStat
 
  ```
    UserId
