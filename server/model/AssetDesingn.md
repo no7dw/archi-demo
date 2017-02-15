@@ -5,32 +5,32 @@
 
 User
 
-Asset
+Asset (单个资产的信息)
 
 ```
     Asset :{
         Type: {type: 'string'},//stock ,index ,fund
         Name:{type: 'string'},//天健集团
         Symbol:{type: 'string'},//000090
-        StyleStatic: {
-        InvestStyle: [{ //风格
-          name: // "小盘股",
-          code: //"813"
-        }],
-        Industry: [{ //风格
-          name: // "房地产",
-          code: //813
-        }]
-        Concept: [{
-        name:  //"前海概念"
-        code  //5
-        }]
+        Style: {
+            InvestStyle: [{ //风格
+              name: // "小盘股",
+              code: //"813"
+            }],
+            Industry: [{ //风格
+              name: // "房地产",
+              code: //813
+            }]
+            Concept: [{
+            name:  //"前海概念"
+            code  //5
+            }]
         }
         //isInPool: {'type':'integer'} //荐股专用
     }
 ```
 
-AssetDaily(AssetHistory)
+AssetDaily(AssetHistory) (单个资产的每日信息)
 
 ```
   AssetDaily: {
@@ -61,37 +61,40 @@ UserAssetStat(Current)
     FirstSellDate
     AvgSellPrice    
     SellQuantity
+    Profit //单个资产收益
     Income: {
       ERate: //绝对收益率
       RRate: //相对收益率
-      Profit //单个资产收益     
     }
   }
 ```
 
 
-UserPortfolioStat(Current) 代替 CustomerAccount
+UserAccount (Current) 代替 CustomerAccount
 
 ```
-  UserPortfolioStat:{
-     UserId 
+  UserAccount:{
+     UserId
+     AccountId
      PortfolioID
+     Profit //资产收益
      TotalProperty 总资产
      CommissionRate 佣金率
      TurnoverRate 换手率
      TotalAsset 持股市值
      AvaiProperty 可用资金
      AssetProportion 仓位(在持)
-     Portfolio : {
-      AssetID
-      Num
-     }
+     PortfolioName
+     Portfolio : [{
+      AssetId
+      Num //股数
+      Price
+     }]
      Income: {
       ERate: //绝对收益率
       RRate: //相对收益率
-      Profit //单个资产收益     
     }
-     StyleStatic: {
+     Style: {
       InvestStyle:[{name, rate}]
       Concept:[{name, rate}]
       Industry:[{name, rate}]
@@ -99,12 +102,12 @@ UserPortfolioStat(Current) 代替 CustomerAccount
   }
 ```
 
-UserPortfolioDailySummary  -- 替代CustomerAccountSummary  -->UserHoldingDaily
+UserAccountSummary  -- 替代CustomerAccountSummary
 
 ```
   UserPortfolioDailySummary:{
     Date:
-    UserPortfolioStat
+    UserPortfolioStat - Portfolio
   }
 ```
 
@@ -129,27 +132,6 @@ UserTag
 
   ```
 
-====MySQL
-
-Portfolio
-
-```
-  UserId
-  AccountId
-  PortfolioId
-  Name
-  AssetID
-  Quantity
-```
-
-
-UserAccount <--- UserPortfolioStat
-
-```
-  UserId
-  AccountId
-  AvaiProperty 可用资金
-```
 
 Order
 
