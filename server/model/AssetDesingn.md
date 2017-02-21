@@ -1,6 +1,4 @@
 
-
-
 =====Mongo
 
 User
@@ -73,13 +71,15 @@ UserAssetStat(Current)
 一个用户有多个账户
 UserAccountVirtual(虚拟)账户
 
+一个用户多个账户，一个账户多个portfolios
+
 UserAccount (Current) 代替 CustomerAccount
 
 ```
   UserAccount:{
      UserId
      AccountId
-     PortfolioID
+     Portfolios:[pid1,pid2,pid3] 
      Profit //资产收益
      TotalProperty 总资产
      CommissionRate 佣金率
@@ -87,11 +87,6 @@ UserAccount (Current) 代替 CustomerAccount
      TotalAsset 持股市值
      AvaiProperty 可用资金
      AssetProportion 仓位(在持)
-     PortfolioName
-     Portfolio : [{
-      AssetId
-      Num //股数
-     }]
      Income: {
       ERate: //绝对收益率
       RRate: //相对收益率
@@ -104,20 +99,43 @@ UserAccount (Current) 代替 CustomerAccount
   }
 ```
 
-UserPortfolioHolding 用户在持的资产
+UserAssetHolding 用户在持的资产(Portfolio) 设计1：不展开的设计
 ```
     {
+        PortfolioID //即_id
         UserId
         AccountId
-        Name
+        PortfolioName
         PortfolioDetail: [{
             AssetId,
             AssetType //区分产品类别,非标 标准化产品
             PurchaseValue
             Quantity
+            RateYear
+            StartTime
+            EndTime
         }]
     }
 ```
+
+
+UserAssetHolding 用户在持的资产(Portfolio) 设计2：展开的设计
+```
+    {
+        PortfolioID //即_id
+        UserId
+        AccountId
+        AssetId,
+        AssetType //区分产品类别,非标 标准化产品
+        PurchaseValue
+        Quantity
+        RateYear
+        StartTime
+        EndTime
+        
+    }
+```
+
 
 UserAccountSummary  -- 替代CustomerAccountSummary
 
@@ -155,6 +173,7 @@ Order
 ```
   OrderId
   UserId
+  AccountId
   AssetId
   PortfolioId
   Symbol
@@ -177,7 +196,7 @@ Cashflow
 
 ====MySQL Version
 
-UserPortfolioHolding
+UserAssetHolding
 
  ```
    UserId
@@ -187,7 +206,9 @@ UserPortfolioHolding
    AssetID
    PurchaseValue
    Quantity
-
+   RateYear
+   StartTime
+   EndTime
  ```
 
 
