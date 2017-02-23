@@ -253,7 +253,7 @@ Cashflow
 
 ====MySQL Version
 
-UserAssetHolding
+UserPortfolioHolding
 
  ```
    UserId
